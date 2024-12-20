@@ -23,7 +23,40 @@
             <input id="volumeControl" type="range" min="0" max="1" step="0.1" value="0.5">
         </div>
     </div>
-    <audio id="radioPlayer" src="https://stream.zeno.fm/dlvtl3hthyxvv"></audio>
-    <script src="script.js"></script>
+    <audio id="radioPlayer" src="https://stream.zeno.fm/dlvtl3hthyxvv" autoplay></audio>
+    <script>
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        const radioPlayer = document.getElementById('radioPlayer');
+        const volumeControl = document.getElementById('volumeControl');
+
+        // Iniciar autoplay
+        window.addEventListener('load', () => {
+            radioPlayer.play().catch(error => {
+                console.log("Autoplay bloqueado por el navegador. El usuario debe interactuar para iniciar la reproducción.");
+            });
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+        });
+
+        // Play/Pause functionality
+        playPauseBtn.addEventListener('click', () => {
+            if (radioPlayer.paused) {
+                radioPlayer.play();
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            } else {
+                radioPlayer.pause();
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            }
+        });
+
+        // Volume control
+        volumeControl.addEventListener('input', (e) => {
+            radioPlayer.volume = e.target.value;
+        });
+    </script>
 </body>
 </html>
