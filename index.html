@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Radio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="radio-bar">
+        <div class="logo-container">
+            <img src="https://i.imgur.com/VcfPZC2.png" alt="Logo Radio">
+        </div>
+        <div class="info-container">
+            <h2 class="radio-title">Radio Power</h2>
+            <p></p>
+        </div>
+        <div class="controls-container">
+            <button id="playPauseBtn" class="control-btn">
+                <img id="playIcon" src="https://i.imgur.com/OOP794K.png" alt="Play" width="24" height="24">
+                <img id="pauseIcon" src="https://i.imgur.com/lgmJyYj.png" alt="Pause" width="24" height="24" style="display: none;">
+            </button>
+            <input id="volumeControl" type="range" min="0" max="1" step="0.1" value="0.5">
+        </div>
+    </div>
+    <audio id="radioPlayer" src="https://stream.zeno.fm/dlvtl3hthyxvv"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
