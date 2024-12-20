@@ -4,6 +4,15 @@ const pauseIcon = document.getElementById('pauseIcon');
 const radioPlayer = document.getElementById('radioPlayer');
 const volumeControl = document.getElementById('volumeControl');
 
+// Iniciar autoplay
+window.addEventListener('load', () => {
+    radioPlayer.play().catch(error => {
+        console.log("Autoplay bloqueado por el navegador. El usuario debe interactuar para iniciar la reproducción.");
+    });
+    playIcon.style.display = 'none';
+    pauseIcon.style.display = 'block';
+});
+
 // Play/Pause functionality
 playPauseBtn.addEventListener('click', () => {
     if (radioPlayer.paused) {
